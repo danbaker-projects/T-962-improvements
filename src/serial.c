@@ -77,6 +77,10 @@ int uart_isrxready(void){
 	return circ_buf_has_char(&rxbuf);
 }
 
+int uart_isrxlineready(void){
+ 	return circ_buf_has_line(&rxbuf);
+}
+
 int uart_readline(char* buffer, int max_len) {
 	int i = 0;
 	while (uart_isrxready()) {
