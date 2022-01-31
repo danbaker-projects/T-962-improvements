@@ -20,6 +20,7 @@ typedef struct {
 void init_circ_buf(tcirc_buf * cbuf);
 void add_to_circ_buf(tcirc_buf *cbuf, char ch, int block);
 int circ_buf_has_char(tcirc_buf *cbuf);
+int circ_buf_has_line(tcirc_buf *cbuf);
 char get_from_circ_buf(tcirc_buf *cbuf);
 unsigned int circ_buf_count(tcirc_buf *cbuf);
 
