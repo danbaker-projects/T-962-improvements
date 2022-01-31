@@ -8,6 +8,7 @@ char uart_readc(void);
 
 //non-blocking check
 int uart_isrxready(void);
+int uart_isrxlineready(void);
 
 int uart_readline(char* buffer, int max_len);
 
