@@ -184,7 +184,7 @@ static int32_t Main_Work(void) {
 	char* cmd_dump_profile = "dump profile %d";
 	char* cmd_setting = "setting %d %f";
 
-	if (uart_isrxlineready()) { // is a complete serial port command line ready to process?
+	if (uart_isrxlineready()) { // is there a complete serial port command line ready to process?
 		int len = uart_readline(serial_cmd, 255);
 
 		if (len > 0) {
