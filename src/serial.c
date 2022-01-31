@@ -85,7 +85,7 @@ int uart_readline(char* buffer, int max_len) {
 	int i = 0;
 	while (uart_isrxready()) {
 		buffer[i] = uart_readc();
-		if (buffer[i] == '\n' || i >= max_len) {
+		if (buffer[i] == '\r' || buffer[i] == '\n' || i >= max_len) {
 			break;
 		}
 		i++;
