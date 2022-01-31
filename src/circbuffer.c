@@ -59,7 +59,7 @@ int circ_buf_has_char(tcirc_buf *cbuf) {
 	return (head != cbuf->tail);
 }
 
-int circ_buf_has_line(tcirc_buf *cbuf) {	// Return true if buffer has an unread line
+int circ_buf_has_line(tcirc_buf *cbuf) {	// Return true if buffer has a complete unread line
 	unsigned int temptail = cbuf->tail;
 	while ( temptail != cbuf->head ) { // scan from tail to head for an end-of-line character
 		if ( temptail < CIRCBUFSIZE - 1) {
