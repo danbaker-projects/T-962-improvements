@@ -59,6 +59,22 @@ int circ_buf_has_char(tcirc_buf *cbuf) {
 	return (head != cbuf->tail);
 }
 
+int circ_buf_has_line(tcirc_buf *cbuf) {	// Return true if buffer has an unread line
+	unsigned int temptail = cbuf->tail;
+	while ( temptail != cbuf->head ) { // scan from tail to head for an end-of-line character
+		if ( temptail < CIRCBUFSIZE - 1) {
+			temptail++; // point to the next character in the buffer
+		}
+		else {
+			temptail = 0; // wrap around to the start of the character buffer
+		}
+		if ( cbuf->buf[temptail] == '\r' || cbuf->buf[temptail] == '\n' || cbuf->buf[temptail] == '?' ) { // end of line?
+			return 1; // there is a line waiting to be read
+		} // end if (end-of-line found)
+	} // end while
+	return 0; // no complete line in rx buffer
+}
+
 unsigned int circ_buf_count(tcirc_buf *cbuf) {
 	int count;
 
