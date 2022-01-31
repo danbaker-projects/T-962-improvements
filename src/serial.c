@@ -77,7 +77,7 @@ int uart_isrxready(void){
 	return circ_buf_has_char(&rxbuf);
 }
 
-int uart_isrxlineready(void){
+int uart_isrxlineready(void){ // is there a complete line waiting on the serial port?
  	return circ_buf_has_line(&rxbuf);
 }
 
